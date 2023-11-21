@@ -428,6 +428,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CaptainsCompanion/Preview Content\"";
 				DEVELOPMENT_TEAM = 87635PD639;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CaptainsCompanion/Info.plist;
@@ -467,6 +468,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CaptainsCompanion/Preview Content\"";
 				DEVELOPMENT_TEAM = 87635PD639;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CaptainsCompanion/Info.plist;
