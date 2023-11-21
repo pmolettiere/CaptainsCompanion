@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		9AD81E742B0D4DF1009ACCFC /* CaptainsCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E732B0D4DF1009ACCFC /* CaptainsCompanionApp.swift */; };
-		9AD81E762B0D4DF1009ACCFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E752B0D4DF1009ACCFC /* ContentView.swift */; };
-		9AD81E782B0D4DF1009ACCFC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E772B0D4DF1009ACCFC /* Item.swift */; };
+		9AD81E762B0D4DF1009ACCFC /* VesselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E752B0D4DF1009ACCFC /* VesselView.swift */; };
+		9AD81E782B0D4DF1009ACCFC /* Vessel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E772B0D4DF1009ACCFC /* Vessel.swift */; };
 		9AD81E7A2B0D4DF3009ACCFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD81E792B0D4DF3009ACCFC /* Assets.xcassets */; };
 		9AD81E7E2B0D4DF3009ACCFC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD81E7D2B0D4DF3009ACCFC /* Preview Assets.xcassets */; };
 		9AD81E892B0D4DF3009ACCFC /* CaptainsCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E882B0D4DF3009ACCFC /* CaptainsCompanionTests.swift */; };
 		9AD81E932B0D4DF3009ACCFC /* CaptainsCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E922B0D4DF3009ACCFC /* CaptainsCompanionUITests.swift */; };
 		9AD81E952B0D4DF3009ACCFC /* CaptainsCompanionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E942B0D4DF3009ACCFC /* CaptainsCompanionUITestsLaunchTests.swift */; };
+		9AD81EA82B0D57B1009ACCFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AD81EAA2B0D57B1009ACCFC /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +38,8 @@
 /* Begin PBXFileReference section */
 		9AD81E702B0D4DF1009ACCFC /* CaptainsCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaptainsCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD81E732B0D4DF1009ACCFC /* CaptainsCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptainsCompanionApp.swift; sourceTree = "<group>"; };
-		9AD81E752B0D4DF1009ACCFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		9AD81E772B0D4DF1009ACCFC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		9AD81E752B0D4DF1009ACCFC /* VesselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselView.swift; sourceTree = "<group>"; };
+		9AD81E772B0D4DF1009ACCFC /* Vessel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vessel.swift; sourceTree = "<group>"; };
 		9AD81E792B0D4DF3009ACCFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AD81E7B2B0D4DF3009ACCFC /* CaptainsCompanion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CaptainsCompanion.entitlements; sourceTree = "<group>"; };
 		9AD81E7D2B0D4DF3009ACCFC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 		9AD81E8E2B0D4DF3009ACCFC /* CaptainsCompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaptainsCompanionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD81E922B0D4DF3009ACCFC /* CaptainsCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptainsCompanionUITests.swift; sourceTree = "<group>"; };
 		9AD81E942B0D4DF3009ACCFC /* CaptainsCompanionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptainsCompanionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9AD81EA92B0D57B1009ACCFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +100,10 @@
 		9AD81E722B0D4DF1009ACCFC /* CaptainsCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				9AD81EA52B0D569C009ACCFC /* l10n */,
+				9AD81EA42B0D5556009ACCFC /* view */,
+				9AD81EA32B0D554B009ACCFC /* model */,
 				9AD81E732B0D4DF1009ACCFC /* CaptainsCompanionApp.swift */,
-				9AD81E752B0D4DF1009ACCFC /* ContentView.swift */,
-				9AD81E772B0D4DF1009ACCFC /* Item.swift */,
 				9AD81E792B0D4DF3009ACCFC /* Assets.xcassets */,
 				9AD81E7B2B0D4DF3009ACCFC /* CaptainsCompanion.entitlements */,
 				9AD81E7F2B0D4DF3009ACCFC /* Info.plist */,
@@ -132,6 +135,30 @@
 				9AD81E942B0D4DF3009ACCFC /* CaptainsCompanionUITestsLaunchTests.swift */,
 			);
 			path = CaptainsCompanionUITests;
+			sourceTree = "<group>";
+		};
+		9AD81EA32B0D554B009ACCFC /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9AD81E772B0D4DF1009ACCFC /* Vessel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		9AD81EA42B0D5556009ACCFC /* view */ = {
+			isa = PBXGroup;
+			children = (
+				9AD81E752B0D4DF1009ACCFC /* VesselView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		9AD81EA52B0D569C009ACCFC /* l10n */ = {
+			isa = PBXGroup;
+			children = (
+				9AD81EAA2B0D57B1009ACCFC /* Localizable.strings */,
+			);
+			path = l10n;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AD81E7E2B0D4DF3009ACCFC /* Preview Assets.xcassets in Resources */,
+				9AD81EA82B0D57B1009ACCFC /* Localizable.strings in Resources */,
 				9AD81E7A2B0D4DF3009ACCFC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,8 +292,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AD81E762B0D4DF1009ACCFC /* ContentView.swift in Sources */,
-				9AD81E782B0D4DF1009ACCFC /* Item.swift in Sources */,
+				9AD81E762B0D4DF1009ACCFC /* VesselView.swift in Sources */,
+				9AD81E782B0D4DF1009ACCFC /* Vessel.swift in Sources */,
 				9AD81E742B0D4DF1009ACCFC /* CaptainsCompanionApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +329,17 @@
 			targetProxy = 9AD81E8F2B0D4DF3009ACCFC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9AD81EAA2B0D57B1009ACCFC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9AD81EA92B0D57B1009ACCFC /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9AD81E962B0D4DF3009ACCFC /* Debug */ = {

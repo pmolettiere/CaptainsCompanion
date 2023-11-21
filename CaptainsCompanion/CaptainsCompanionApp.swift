@@ -12,7 +12,7 @@ import SwiftData
 struct CaptainsCompanionApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Vessel.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,7 +25,7 @@ struct CaptainsCompanionApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VesselView()
         }
         .modelContainer(sharedModelContainer)
     }

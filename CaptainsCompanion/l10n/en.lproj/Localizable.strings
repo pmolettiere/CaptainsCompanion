@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  CaptainsCompanion
+
+  Created by Peter Molettiere on 11/21/23.
+  
+*/
+
+vessel.name.default = "Unnamed Vessel";
+vessel.model.default = "Unknown Make";
+vessel.make.default = "Unknown Model";
