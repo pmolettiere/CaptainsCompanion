@@ -6,6 +6,37 @@
   
 */
 
+units.unit.label = "Units";
+units.speed.nautical = "knots";
+units.speed.si = "kph";
+units.speed.en = "mph";
+units.fuelconsumption.si = "lph";
+units.fuelconsumption.en = "gph";
+units.volume.si = "liters";
+units.volume.en = "gallons";
+
+vessel.name.label = "Name";
+vessel.make.label = "Make";
+vessel.model.label = "Model";
+vessel.year.label = "Year";
+vessel.hin.label = "Hull ID";
+vessel.cruisingSpeed.label = "Cruising Speed";
+vessel.fuelConsumption.label = "Fuel Consumption";
+vessel.fuelCapacity.label = "Fuel Capacity";
+
+vessel.name.hint = "The name of the vessel";
+vessel.make.hint = "The manufacturer of the vesel";
+vessel.model.hint = "The model name of the vessel";
+vessel.year.hint = "The year the vessel was manufactured";
+vessel.hin.hint = "The hull identification number of the vessel";
+vessel.cruisingSpeed.hint = "The vessel's normal cruising speed";
+vessel.fuelConsumptionLph.hint = "The vessel's fuel consumption at cruising speed";
+vessel.fuelCapacityLiters.hint = "The total fuel capacity of the vessel";
+
 vessel.name.default = "Unnamed Vessel";
-vessel.model.default = "Unknown Make";
-vessel.make.default = "Unknown Model";
+vessel.model.default = "";
+vessel.make.default = "";
+vessel.hin.default = "";
+
+vesselview.add = "Add a Vessel";
+vesselview.select = "Select a Vessel";

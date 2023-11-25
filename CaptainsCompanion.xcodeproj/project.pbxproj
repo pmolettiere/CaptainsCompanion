@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9AD81E742B0D4DF1009ACCFC /* CaptainsCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E732B0D4DF1009ACCFC /* CaptainsCompanionApp.swift */; };
-		9AD81E762B0D4DF1009ACCFC /* VesselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E752B0D4DF1009ACCFC /* VesselView.swift */; };
+		9AD81E762B0D4DF1009ACCFC /* VesselListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E752B0D4DF1009ACCFC /* VesselListView.swift */; };
 		9AD81E782B0D4DF1009ACCFC /* Vessel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E772B0D4DF1009ACCFC /* Vessel.swift */; };
 		9AD81E7A2B0D4DF3009ACCFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD81E792B0D4DF3009ACCFC /* Assets.xcassets */; };
 		9AD81E7E2B0D4DF3009ACCFC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD81E7D2B0D4DF3009ACCFC /* Preview Assets.xcassets */; };
@@ -16,6 +16,7 @@
 		9AD81E932B0D4DF3009ACCFC /* CaptainsCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E922B0D4DF3009ACCFC /* CaptainsCompanionUITests.swift */; };
 		9AD81E952B0D4DF3009ACCFC /* CaptainsCompanionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E942B0D4DF3009ACCFC /* CaptainsCompanionUITestsLaunchTests.swift */; };
 		9AD81EA82B0D57B1009ACCFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AD81EAA2B0D57B1009ACCFC /* Localizable.strings */; };
+		9AD81EAC2B0D645E009ACCFC /* VesselDetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81EAB2B0D645E009ACCFC /* VesselDetailEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 /* Begin PBXFileReference section */
 		9AD81E702B0D4DF1009ACCFC /* CaptainsCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaptainsCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD81E732B0D4DF1009ACCFC /* CaptainsCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptainsCompanionApp.swift; sourceTree = "<group>"; };
-		9AD81E752B0D4DF1009ACCFC /* VesselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselView.swift; sourceTree = "<group>"; };
+		9AD81E752B0D4DF1009ACCFC /* VesselListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselListView.swift; sourceTree = "<group>"; };
 		9AD81E772B0D4DF1009ACCFC /* Vessel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vessel.swift; sourceTree = "<group>"; };
 		9AD81E792B0D4DF3009ACCFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AD81E7B2B0D4DF3009ACCFC /* CaptainsCompanion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CaptainsCompanion.entitlements; sourceTree = "<group>"; };
@@ -50,6 +51,7 @@
 		9AD81E922B0D4DF3009ACCFC /* CaptainsCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptainsCompanionUITests.swift; sourceTree = "<group>"; };
 		9AD81E942B0D4DF3009ACCFC /* CaptainsCompanionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptainsCompanionUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9AD81EA92B0D57B1009ACCFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AD81EAB2B0D645E009ACCFC /* VesselDetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselDetailEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +150,8 @@
 		9AD81EA42B0D5556009ACCFC /* view */ = {
 			isa = PBXGroup;
 			children = (
-				9AD81E752B0D4DF1009ACCFC /* VesselView.swift */,
+				9AD81E752B0D4DF1009ACCFC /* VesselListView.swift */,
+				9AD81EAB2B0D645E009ACCFC /* VesselDetailEditView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -292,9 +295,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AD81E762B0D4DF1009ACCFC /* VesselView.swift in Sources */,
+				9AD81E762B0D4DF1009ACCFC /* VesselListView.swift in Sources */,
 				9AD81E782B0D4DF1009ACCFC /* Vessel.swift in Sources */,
 				9AD81E742B0D4DF1009ACCFC /* CaptainsCompanionApp.swift in Sources */,
+				9AD81EAC2B0D645E009ACCFC /* VesselDetailEditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

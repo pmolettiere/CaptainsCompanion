@@ -8,21 +8,21 @@
 import SwiftUI
 import SwiftData
 
-struct VesselView: View {
+struct VesselListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var vessels: [Vessel]
 
     var body: some View {
         NavigationSplitView {
             List {
-                ForEach(vessels) { item in
+                ForEach(vessels) { vessel in
                     NavigationLink {
-                        Text("Item at \(item.created, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        VesselDetailEditView(vessel: vessel)
                     } label: {
-                        Text(item.created, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        Text(vessel.name)
                     }
                 }
-                .onDelete(perform: deleteItems)
+                .onDelete(perform: deleteVessels)
             }
 #if os(macOS)
             .navigationSplitViewColumnWidth(min: 180, ideal: 200)
@@ -35,23 +35,23 @@ struct VesselView: View {
 #endif
                 ToolbarItem {
                     Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                        Label("vesselview.add", systemImage: "plus")
                     }
                 }
             }
         } detail: {
-            Text("Select an item")
+            Text("vesselview.select")
         }
     }
 
     private func addItem() {
         withAnimation {
-            let newItem = Vessel(created: Date())
-            modelContext.insert(newItem)
+            let newVessel = Vessel(created: Date())
+            modelContext.insert(newVessel)
         }
     }
 
-    private func deleteItems(offsets: IndexSet) {
+    private func deleteVessels(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
                 modelContext.delete(vessels[index])
@@ -61,6 +61,6 @@ struct VesselView: View {
 }
 
 #Preview {
-    VesselView()
-        .modelContainer(for: Vessel.self, inMemory: true)
+    VesselListView()
+        .modelContainer(for:[Vessel.self], inMemory: true)
 }
