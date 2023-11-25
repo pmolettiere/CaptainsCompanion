@@ -12,8 +12,8 @@ struct VesselDetailEditView: View {
     @Environment(\.modelContext) private var modelContext
     @State var vessel: Vessel
     
-    var yearFormat: NumberFormatter
-    var doubleDecimalFormat: NumberFormatter
+    var intFormat: NumberFormatter
+    var floatFormat: NumberFormatter
 
     var body: some View {
         let labelWidth: CGFloat = 120;
@@ -44,7 +44,7 @@ struct VesselDetailEditView: View {
                     Text("vessel.year.label")
                         .frame(width: labelWidth, height: 25,
                                alignment: Alignment.trailing)
-                    TextField("vessel.year.label", value: $vessel.year, formatter: yearFormat)
+                    TextField("vessel.year.label", value: $vessel.year, formatter: intFormat)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Stepper("vessel.year.label", value: $vessel.year, in: 1800...2024, step: 1)
                         .labelsHidden()
@@ -62,7 +62,7 @@ struct VesselDetailEditView: View {
                     Text("vessel.cruisingSpeed.label")
                         .frame(width: labelWidth, height: 25,
                                alignment: Alignment.trailing)
-                    TextField("vessel.cruisingSpeed.label", value: $vessel.cruisingSpeedValue, formatter: doubleDecimalFormat)
+                    TextField("vessel.cruisingSpeed.label", value: $vessel.cruisingSpeedValue, formatter: floatFormat)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Stepper("vessel.cruisingSpeed.label", value: $vessel.cruisingSpeedValue, in: 0...25, step: 0.1)
                         .labelsHidden()
@@ -77,7 +77,7 @@ struct VesselDetailEditView: View {
                     Text("vessel.fuelConsumption.label")
                         .frame(width: labelWidth, height: 25,
                                alignment: Alignment.trailing)
-                    TextField("vessel.fuelConsumption.label", value: $vessel.fuelConsumptionValue, formatter: doubleDecimalFormat)
+                    TextField("vessel.fuelConsumption.label", value: $vessel.fuelConsumptionValue, formatter: floatFormat)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Stepper("vessel.fuelConsumption.label", value: $vessel.fuelConsumptionValue, in: 0...20, step: 0.01)
                         .labelsHidden()
@@ -93,7 +93,7 @@ struct VesselDetailEditView: View {
                     Text("vessel.fuelCapacity.label")
                         .frame(width: labelWidth, height: 25,
                                alignment: Alignment.trailing)
-                    TextField("vessel.fuelCapacity.label", value: $vessel.fuelCapacityValue, formatter: doubleDecimalFormat)
+                    TextField("vessel.fuelCapacity.label", value: $vessel.fuelCapacityValue, formatter: intFormat)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Stepper("vessel.fuelCapacity.label", value: $vessel.fuelCapacityValue, in: 0...20)
                         .labelsHidden()
@@ -111,12 +111,12 @@ struct VesselDetailEditView: View {
 
     init(vessel: Vessel) {
         self.vessel = vessel
-        self.yearFormat = NumberFormatter()
-        self.doubleDecimalFormat = NumberFormatter()
-        yearFormat.numberStyle = NumberFormatter.Style.none;
-        doubleDecimalFormat.numberStyle = NumberFormatter.Style.decimal;
-        doubleDecimalFormat.minimumFractionDigits = 2
-        doubleDecimalFormat.maximumFractionDigits = 2
+        self.intFormat = NumberFormatter()
+        self.floatFormat = NumberFormatter()
+        intFormat.numberStyle = NumberFormatter.Style.none;
+        floatFormat.numberStyle = NumberFormatter.Style.decimal;
+        floatFormat.minimumFractionDigits = 1
+        floatFormat.maximumFractionDigits = 2
     }
 }
 
