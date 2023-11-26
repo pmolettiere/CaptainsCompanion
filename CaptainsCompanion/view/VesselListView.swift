@@ -10,7 +10,7 @@ import SwiftData
 
 struct VesselListView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var vessels: [Vessel]
+    @Query(sort: \Vessel.name) private var vessels: [Vessel]
     
     @State private var selection: Vessel.ID?
     @State private var selectedVessel: Vessel?
