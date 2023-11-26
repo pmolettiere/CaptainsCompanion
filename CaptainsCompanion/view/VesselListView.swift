@@ -19,9 +19,7 @@ struct VesselListView: View {
         NavigationSplitView {
             List (vessels, selection: $selection) { vessel in
                 NavigationLink(destination: VesselDetailEditView(vessel: vessel)) {
-                    HStack {
-                        VesselDetailView(vessel: vessel)
-                    }
+                    VesselDetailView(vessel: vessel)
                 }
             }
             .onChange(of: selection) {
@@ -49,9 +47,7 @@ struct VesselListView: View {
             }
         } detail: {
             if let vessel = selectedVessel {
-                HStack {
-                    VesselDetailEditView(vessel: vessel)
-                }
+                VesselDetailEditView(vessel: vessel)
             } else {
                 Text("vesselview.select")
             }
