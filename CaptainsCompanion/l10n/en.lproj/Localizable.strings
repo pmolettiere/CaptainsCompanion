@@ -7,7 +7,10 @@
 */
 
 units.unit.label = "Units";
-units.speed.nautical = "knots";
+units.distance.nm = "nm";
+units.distance.si = "km";
+units.distance.en = "miles";
+units.speed.nautical = "kts";
 units.speed.si = "kph";
 units.speed.en = "mph";
 units.fuelconsumption.si = "lph";
@@ -23,6 +26,7 @@ vessel.hin.label = "Hull ID";
 vessel.cruisingSpeed.label = "Cruising Speed";
 vessel.fuelConsumption.label = "Fuel Consumption";
 vessel.fuelCapacity.label = "Fuel Capacity";
+vessel.range.label = "Range";
 
 vessel.name.hint = "The name of the vessel";
 vessel.make.hint = "The manufacturer of the vesel";
@@ -42,5 +46,7 @@ vesselview.add = "Add a Vessel";
 vesselview.delete = "Delete a Vessel";
 vesselview.select = "Select a Vessel";
 
-vesseldetaileditview.idheader = "Vessel Identification";
-vesseldetaileditview.fuelheader = "Fuel Range and Speed";
+vessel.detail.view.edit = "Edit Vessel";
+
+section.header.id = "Vessel Identification";
+section.header.fuel = "Fuel Range and Speed";

@@ -13,24 +13,25 @@ struct VesselListView: View {
     @Query(sort: \Vessel.name) private var vessels: [Vessel]
     
     @State private var selection: Vessel.ID?
-    @State private var selectedVessel: Vessel?
 
+    fileprivate func selectedVessel() -> Vessel? {
+        return vessels.first(where: {$0.id == selection})
+    }
+    
     var body: some View {
         NavigationSplitView {
-            List (vessels, selection: $selection) { vessel in
-                NavigationLink(destination: VesselDetailEditView(vessel: vessel)) {
-                    VesselDetailView(vessel: vessel)
-                }
-            }
-            .onChange(of: selection) {
-                if let v = selection {
-                    print("VesselListView selection changed to \(v)")
-                    if let sv = vessels.first(where: {$0.id == selection}) {
-                        selectedVessel = sv;
-                        print("VesselListView selectedVessel set to \(sv.name)")
+            List(selection: $selection) {
+                ForEach(vessels, id: \.self.id) { vessel in
+                    NavigationLink(destination: VesselDetailView(vessel: vessel)) {
+                        Text(vessel.name)
                     }
-                } else {
-                    print("VesselListView selection changed to nil")
+                }
+                .onChange(of: selection) {
+                    if selection != nil {
+                        print("VesselListView selection changed.")
+                    } else {
+                        print("VesselListView selection changed to nil")
+                    }
                 }
             }
             .toolbar {
@@ -45,11 +46,14 @@ struct VesselListView: View {
                     }
                 }
             }
-        } detail: {
-            if let vessel = selectedVessel {
-                VesselDetailEditView(vessel: vessel)
+        }
+        detail: {
+            if selection != nil {
+                if let sv = selectedVessel() {
+                    VesselDetailView(vessel: sv)
+                }
             } else {
-                Text("vesselview.select")
+                Text("Select a vessel")
             }
         }
     }
@@ -62,8 +66,7 @@ struct VesselListView: View {
     }
     
     private func deleteVessel() {
-        if let dv = selectedVessel {
-            print("VesselListView.deleteVessel deleting \(dv.name)")
+        if let dv = selectedVessel() {
             modelContext.delete(dv)
         }
     }

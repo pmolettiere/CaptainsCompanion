@@ -19,14 +19,14 @@ struct VesselDetailEditView: View, Equatable {
     var body: some View {
         let labelWidth: CGFloat = 120;
         List {
-            Section(header: Text("vesseldetaileditview.idheader").font(.headline)) {
+            Section(header: Text("section.header.id").font(.headline)) {
                 StringEditor(label: "vessel.name.label", field: $vessel.name, width: labelWidth)
                 StringEditor(label: "vessel.make.label", field: $vessel.make, width: labelWidth)
                 StringEditor(label: "vessel.model.label", field: $vessel.model, width: labelWidth)
                 IntEditor(label: "vessel.year.label", field: $vessel.year, width: labelWidth, range: 1800...2030)
                 StringEditor(label: "vessel.hin.label", field: $vessel.hin, width: labelWidth)
             }
-            Section(header: Text("vesseldetaileditview.fuelheader").font(.headline)) {
+            Section(header: Text("section.header.fuel").font(.headline)) {
                 SpeedUnitEditor(label: "vessel.cruisingSpeed.label", value: $vessel.cruisingSpeedValue, unit: $vessel.cruisingSpeedUnit, width: labelWidth, range: 0...25, step: 0.1) {
                         ForEach(Vessel.SpeedUnit.allCases) { unit in
                             Text(unit.label)
@@ -152,11 +152,11 @@ struct ConsumptionUnitEditor: View {
 
 struct VolumeUnitEditor: View {
     let label: LocalizedStringKey
-    let value: Binding<Int>
+    let value: Binding<Float>
     let unit: Binding<Vessel.VolumeUnit>
     let width: CGFloat
-    let range: ClosedRange<Int>
-    let step: Int
+    let range: ClosedRange<Float>
+    let step: Float
     @ViewBuilder
     let cases: () -> any View
 
