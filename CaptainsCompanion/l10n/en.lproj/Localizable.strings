@@ -39,4 +39,8 @@ vessel.make.default = "";
 vessel.hin.default = "";
 
 vesselview.add = "Add a Vessel";
+vesselview.delete = "Delete a Vessel";
 vesselview.select = "Select a Vessel";
+
+vesseldetaileditview.idheader = "Vessel Identification";
+vesseldetaileditview.fuelheader = "Fuel Range and Speed";

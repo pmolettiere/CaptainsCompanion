@@ -11,8 +11,7 @@ import SwiftData
 import SwiftUI
 
 @Model
-final class Vessel {
-    var uuid: UUID = UUID()
+final class Vessel : Identifiable, Hashable {
     var created: Date = Date.now
     var name: String = String(localized: "vessel.name.default", comment: "Default name for unnamed vessel")
     var model: String = String(localized: "vessel.model.default", comment: "Default model for vessel")
@@ -37,8 +36,7 @@ final class Vessel {
         self.created = created
     }
 
-    init(uuid: UUID, timestamp: Date, name: String, model: String, make: String, year: Int, hin: String, cruisingSpeedValue: Float, cruisingSpeedUnit: SpeedUnit, fuelConsumptionValue: Float, fuelConsumptionUnit: ConsumptionUnit, fuelCapacityValue: Int, fuelCapacityUnit: VolumeUnit) {
-        self.uuid = uuid;
+    init(timestamp: Date, name: String, model: String, make: String, year: Int, hin: String, cruisingSpeedValue: Float, cruisingSpeedUnit: SpeedUnit, fuelConsumptionValue: Float, fuelConsumptionUnit: ConsumptionUnit, fuelCapacityValue: Int, fuelCapacityUnit: VolumeUnit) {
         self.created = timestamp
         self.name = name
         self.model = model

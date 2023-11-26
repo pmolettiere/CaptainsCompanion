@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A35FBD52B12349700532D82 /* VesselDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35FBD42B12349700532D82 /* VesselDetailView.swift */; };
+		9A35FBD82B1236EF00532D82 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35FBD72B1236EF00532D82 /* Format.swift */; };
 		9AD81E742B0D4DF1009ACCFC /* CaptainsCompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E732B0D4DF1009ACCFC /* CaptainsCompanionApp.swift */; };
 		9AD81E762B0D4DF1009ACCFC /* VesselListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E752B0D4DF1009ACCFC /* VesselListView.swift */; };
 		9AD81E782B0D4DF1009ACCFC /* Vessel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD81E772B0D4DF1009ACCFC /* Vessel.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A35FBD42B12349700532D82 /* VesselDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselDetailView.swift; sourceTree = "<group>"; };
+		9A35FBD72B1236EF00532D82 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		9AD81E702B0D4DF1009ACCFC /* CaptainsCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaptainsCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD81E732B0D4DF1009ACCFC /* CaptainsCompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptainsCompanionApp.swift; sourceTree = "<group>"; };
 		9AD81E752B0D4DF1009ACCFC /* VesselListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselListView.swift; sourceTree = "<group>"; };
@@ -79,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A35FBD62B1236D900532D82 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				9A35FBD72B1236EF00532D82 /* Format.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		9AD81E672B0D4DF1009ACCFC = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +114,7 @@
 		9AD81E722B0D4DF1009ACCFC /* CaptainsCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				9A35FBD62B1236D900532D82 /* util */,
 				9AD81EA52B0D569C009ACCFC /* l10n */,
 				9AD81EA42B0D5556009ACCFC /* view */,
 				9AD81EA32B0D554B009ACCFC /* model */,
@@ -152,6 +165,7 @@
 			children = (
 				9AD81E752B0D4DF1009ACCFC /* VesselListView.swift */,
 				9AD81EAB2B0D645E009ACCFC /* VesselDetailEditView.swift */,
+				9A35FBD42B12349700532D82 /* VesselDetailView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -295,7 +309,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A35FBD52B12349700532D82 /* VesselDetailView.swift in Sources */,
 				9AD81E762B0D4DF1009ACCFC /* VesselListView.swift in Sources */,
+				9A35FBD82B1236EF00532D82 /* Format.swift in Sources */,
 				9AD81E782B0D4DF1009ACCFC /* Vessel.swift in Sources */,
 				9AD81E742B0D4DF1009ACCFC /* CaptainsCompanionApp.swift in Sources */,
 				9AD81EAC2B0D645E009ACCFC /* VesselDetailEditView.swift in Sources */,

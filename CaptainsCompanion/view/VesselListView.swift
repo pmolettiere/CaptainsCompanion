@@ -11,51 +11,64 @@ import SwiftData
 struct VesselListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var vessels: [Vessel]
+    
+    @State private var selection: Vessel.ID?
+    @State private var selectedVessel: Vessel?
 
     var body: some View {
         NavigationSplitView {
-            List {
-                ForEach(vessels) { vessel in
-                    NavigationLink {
-                        VesselDetailEditView(vessel: vessel)
-                    } label: {
-                        Text(vessel.name)
+            List (vessels, selection: $selection) { vessel in
+                NavigationLink(destination: VesselDetailEditView(vessel: vessel)) {
+                    HStack {
+                        VesselDetailView(vessel: vessel)
                     }
                 }
-                .onDelete(perform: deleteVessels)
             }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+            .onChange(of: selection) {
+                if let v = selection {
+                    print("VesselListView selection changed to \(v)")
+                    if let sv = vessels.first(where: {$0.id == selection}) {
+                        selectedVessel = sv;
+                        print("VesselListView selectedVessel set to \(sv.name)")
+                    }
+                } else {
+                    print("VesselListView selection changed to nil")
                 }
-#endif
+            }
+            .toolbar {
                 ToolbarItem {
-                    Button(action: addItem) {
+                    Button(action: addVessel) {
                         Label("vesselview.add", systemImage: "plus")
+                    }
+                }
+                ToolbarItem {
+                    Button(action: deleteVessel) {
+                        Label("vesselview.delete", systemImage: "minus")
                     }
                 }
             }
         } detail: {
-            Text("vesselview.select")
+            if let vessel = selectedVessel {
+                HStack {
+                    VesselDetailEditView(vessel: vessel)
+                }
+            } else {
+                Text("vesselview.select")
+            }
         }
     }
 
-    private func addItem() {
+    private func addVessel() {
         withAnimation {
             let newVessel = Vessel(created: Date())
             modelContext.insert(newVessel)
         }
     }
-
-    private func deleteVessels(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(vessels[index])
-            }
+    
+    private func deleteVessel() {
+        if let dv = selectedVessel {
+            print("VesselListView.deleteVessel deleting \(dv.name)")
+            modelContext.delete(dv)
         }
     }
 }

@@ -8,101 +8,43 @@
 import SwiftUI
 import SwiftData
 
-struct VesselDetailEditView: View {
+struct VesselDetailEditView: View, Equatable {
+    static func == (lhs: VesselDetailEditView, rhs: VesselDetailEditView) -> Bool {
+        lhs.vessel.id == rhs.vessel.id
+    }
+    
     @Environment(\.modelContext) private var modelContext
     @State var vessel: Vessel
     
-    var intFormat: NumberFormatter
-    var floatFormat: NumberFormatter
-
     var body: some View {
         let labelWidth: CGFloat = 120;
         List {
-            Section(header: Text("Vessel Identification").font(.headline)) {
-                HStack {
-                    Text("vessel.name.label")
-                        .frame(width: labelWidth, height: 25,
-                               alignment: Alignment.trailing)
-                    TextField("vessel.name.label", text: $vessel.name)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                HStack {
-                        Text("vessel.make.label")
-                        .frame(width: labelWidth, height: 25,
-                               alignment: Alignment.trailing)
-                        TextField("vessel.make.label", text: $vessel.make)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                HStack {
-                        Text("vessel.model.label")
-                        .frame(width: labelWidth, height: 25,
-                               alignment: Alignment.trailing)
-                        TextField("vessel.model.label", text: $vessel.model)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                HStack {
-                    Text("vessel.year.label")
-                        .frame(width: labelWidth, height: 25,
-                               alignment: Alignment.trailing)
-                    TextField("vessel.year.label", value: $vessel.year, formatter: intFormat)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Stepper("vessel.year.label", value: $vessel.year, in: 1800...2024, step: 1)
-                        .labelsHidden()
-                }
-                HStack {
-                    Text("vessel.hin.label")
-                        .frame(width: labelWidth, height: 25,
-                               alignment: Alignment.trailing)
-                    TextField("vessel.hin.label", text: $vessel.hin)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
+            Section(header: Text("vesseldetaileditview.idheader").font(.headline)) {
+                StringEditor(label: "vessel.name.label", field: $vessel.name, width: labelWidth)
+                StringEditor(label: "vessel.make.label", field: $vessel.make, width: labelWidth)
+                StringEditor(label: "vessel.model.label", field: $vessel.model, width: labelWidth)
+                IntEditor(label: "vessel.year.label", field: $vessel.year, width: labelWidth, range: 1800...2030)
+                StringEditor(label: "vessel.hin.label", field: $vessel.hin, width: labelWidth)
             }
-            Section(header: Text("Fuel Range and Speed").font(.headline)) {
-                HStack {
-                    Text("vessel.cruisingSpeed.label")
-                        .frame(width: labelWidth, height: 25,
-                               alignment: Alignment.trailing)
-                    TextField("vessel.cruisingSpeed.label", value: $vessel.cruisingSpeedValue, formatter: floatFormat)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Stepper("vessel.cruisingSpeed.label", value: $vessel.cruisingSpeedValue, in: 0...25, step: 0.1)
-                        .labelsHidden()
-                    Picker("", selection: $vessel.cruisingSpeedUnit ) {
+            Section(header: Text("vesseldetaileditview.fuelheader").font(.headline)) {
+                SpeedUnitEditor(label: "vessel.cruisingSpeed.label", value: $vessel.cruisingSpeedValue, unit: $vessel.cruisingSpeedUnit, width: labelWidth, range: 0...25, step: 0.1) {
                         ForEach(Vessel.SpeedUnit.allCases) { unit in
                             Text(unit.label)
                                 .tag(unit)
                         }
-                    }
                 }
-                HStack {
-                    Text("vessel.fuelConsumption.label")
-                        .frame(width: labelWidth, height: 25,
-                               alignment: Alignment.trailing)
-                    TextField("vessel.fuelConsumption.label", value: $vessel.fuelConsumptionValue, formatter: floatFormat)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Stepper("vessel.fuelConsumption.label", value: $vessel.fuelConsumptionValue, in: 0...20, step: 0.01)
-                        .labelsHidden()
-                    Picker("", selection: $vessel.fuelConsumptionUnit ) {
+                ConsumptionUnitEditor(label: "vessel.fuelConsumption.label", value: $vessel.fuelConsumptionValue, unit: $vessel.fuelConsumptionUnit, width: labelWidth, range: 0...20, step: 0.01) {
                         ForEach(Vessel.ConsumptionUnit.allCases) { unit in
                             Text(unit.label)
                                 .tag(unit.rawValue)
                                 .textCase(.uppercase)
                         }
-                    }
                 }
-                HStack {
-                    Text("vessel.fuelCapacity.label")
-                        .frame(width: labelWidth, height: 25,
-                               alignment: Alignment.trailing)
-                    TextField("vessel.fuelCapacity.label", value: $vessel.fuelCapacityValue, formatter: intFormat)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Stepper("vessel.fuelCapacity.label", value: $vessel.fuelCapacityValue, in: 0...20)
-                        .labelsHidden()
-                    Picker("", selection: $vessel.fuelCapacityUnit ) {
+                VolumeUnitEditor(label: "vessel.fuelCapacity.label", value: $vessel.fuelCapacityValue, unit: $vessel.fuelCapacityUnit, width: labelWidth, range: 0...5000, step: 1) {
                         ForEach(Vessel.VolumeUnit.allCases) { unit in
                             Text(unit.label)
                                 .tag(unit.rawValue)
                         }
-                    }
                 }
             }
         }
@@ -111,12 +53,7 @@ struct VesselDetailEditView: View {
 
     init(vessel: Vessel) {
         self.vessel = vessel
-        self.intFormat = NumberFormatter()
-        self.floatFormat = NumberFormatter()
-        intFormat.numberStyle = NumberFormatter.Style.none;
-        floatFormat.numberStyle = NumberFormatter.Style.decimal;
-        floatFormat.minimumFractionDigits = 1
-        floatFormat.maximumFractionDigits = 2
+        print("VesselDetailEditView.init(\(vessel.id))")
     }
 }
 
@@ -125,3 +62,116 @@ struct VesselDetailEditView: View {
         .modelContainer(for: Vessel.self, inMemory: true)
 }
 
+
+struct StringEditor: View {
+    let label: LocalizedStringKey
+    let field: Binding<String>
+    let width: CGFloat
+    
+    var body: some View {
+        HStack {
+            Text(label)
+                .frame(width: width, height: 25,
+                       alignment: Alignment.trailing)
+            TextField(label, text: field)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+        }
+    }
+}
+
+struct IntEditor: View {
+    let label: LocalizedStringKey
+    let field: Binding<Int>
+    let width: CGFloat
+    let range: ClosedRange<Int>
+    
+    var body: some View {
+        HStack {
+            Text(label)
+                .frame(width: width, height: 25,
+                       alignment: Alignment.trailing)
+            TextField(label, value: field, formatter: Format.singleton.intFormat)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            Stepper(label, value: field, in: range, step: 1)
+                .labelsHidden()
+        }
+    }
+}
+
+struct SpeedUnitEditor: View {
+    let label: LocalizedStringKey
+    let value: Binding<Float>
+    let unit: Binding<Vessel.SpeedUnit>
+    let width: CGFloat
+    let range: ClosedRange<Float>
+    let step: Float
+    @ViewBuilder
+    let cases: () -> any View
+
+    var body: some View {
+        HStack {
+            Text(label)
+                .frame(width: width, height: 25,
+                       alignment: Alignment.trailing)
+            TextField(label, value: value, formatter: Format.singleton.floatFormat)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            Stepper(label, value: value, in: range, step: step)
+                .labelsHidden()
+            Picker("", selection: unit ) {
+                AnyView(cases())
+            }
+        }
+    }
+}
+
+struct ConsumptionUnitEditor: View {
+    let label: LocalizedStringKey
+    let value: Binding<Float>
+    let unit: Binding<Vessel.ConsumptionUnit>
+    let width: CGFloat
+    let range: ClosedRange<Float>
+    let step: Float
+    @ViewBuilder
+    let cases: () -> any View
+
+    var body: some View {
+        HStack {
+            Text(label)
+                .frame(width: width, height: 25,
+                       alignment: Alignment.trailing)
+            TextField(label, value: value, formatter: Format.singleton.floatFormat)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            Stepper(label, value: value, in: range, step: step)
+                .labelsHidden()
+            Picker("", selection: unit ) {
+                AnyView(cases())
+            }
+        }
+    }
+}
+
+struct VolumeUnitEditor: View {
+    let label: LocalizedStringKey
+    let value: Binding<Int>
+    let unit: Binding<Vessel.VolumeUnit>
+    let width: CGFloat
+    let range: ClosedRange<Int>
+    let step: Int
+    @ViewBuilder
+    let cases: () -> any View
+
+    var body: some View {
+        HStack {
+            Text(label)
+                .frame(width: width, height: 25,
+                       alignment: Alignment.trailing)
+            TextField(label, value: value, formatter: Format.singleton.intFormat)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            Stepper(label, value: value, in: range, step: step)
+                .labelsHidden()
+            Picker("", selection: unit ) {
+                AnyView(cases())
+            }
+        }
+    }
+}
