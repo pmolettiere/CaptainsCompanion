@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0079382B162D99001B8D9B /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A0079372B162D99001B8D9B /* LICENSE.txt */; };
 		9A230AE12B15432A00A62F42 /* VesselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A230AE02B15432A00A62F42 /* VesselView.swift */; };
 		9A35FBD52B12349700532D82 /* VesselDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35FBD42B12349700532D82 /* VesselDetailView.swift */; };
 		9A35FBD82B1236EF00532D82 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35FBD72B1236EF00532D82 /* Format.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A0079372B162D99001B8D9B /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		9A230AE02B15432A00A62F42 /* VesselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselView.swift; sourceTree = "<group>"; };
 		9A35FBD42B12349700532D82 /* VesselDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselDetailView.swift; sourceTree = "<group>"; };
 		9A35FBD72B1236EF00532D82 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		9AD81E672B0D4DF1009ACCFC = {
 			isa = PBXGroup;
 			children = (
+				9A0079372B162D99001B8D9B /* LICENSE.txt */,
 				9AD81E722B0D4DF1009ACCFC /* CaptainsCompanion */,
 				9AD81E872B0D4DF3009ACCFC /* CaptainsCompanionTests */,
 				9AD81E912B0D4DF3009ACCFC /* CaptainsCompanionUITests */,
@@ -285,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A0079382B162D99001B8D9B /* LICENSE.txt in Resources */,
 				9AD81E7E2B0D4DF3009ACCFC /* Preview Assets.xcassets in Resources */,
 				9AD81EA82B0D57B1009ACCFC /* Localizable.strings in Resources */,
 				9AD81E7A2B0D4DF3009ACCFC /* Assets.xcassets in Resources */,
