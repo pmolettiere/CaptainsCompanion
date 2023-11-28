@@ -26,34 +26,28 @@ struct VesselListView: View {
                         Text(vessel.name)
                     }
                 }
-                .onChange(of: selection) {
-                    if selection != nil {
-                        print("VesselListView selection changed.")
-                    } else {
-                        print("VesselListView selection changed to nil")
-                    }
-                }
             }
             .toolbar {
                 ToolbarItem {
                     Button(action: addVessel) {
-                        Label("vesselview.add", systemImage: "plus")
+                        Label("command.vessel.add", systemImage: "plus")
                     }
                 }
                 ToolbarItem {
                     Button(action: deleteVessel) {
-                        Label("vesselview.delete", systemImage: "minus")
+                        Label("command.vessel.delete", systemImage: "minus")
                     }
+                    .disabled(selection == nil)
                 }
             }
         }
         detail: {
             if selection != nil {
                 if let sv = selectedVessel() {
-                    VesselDetailView(vessel: sv)
+                    VesselView(vessel: sv)
                 }
             } else {
-                Text("Select a vessel")
+                Text("command.vessel.select")
             }
         }
     }

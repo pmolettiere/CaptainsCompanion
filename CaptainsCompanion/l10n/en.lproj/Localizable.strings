@@ -42,11 +42,12 @@ vessel.model.default = "";
 vessel.make.default = "";
 vessel.hin.default = "";
 
-vesselview.add = "Add a Vessel";
-vesselview.delete = "Delete a Vessel";
-vesselview.select = "Select a Vessel";
-
-vessel.detail.view.edit = "Edit Vessel";
+command.vessel.add = "Add a Vessel";
+command.vessel.delete = "Delete a Vessel";
+command.vessel.select = "Select a Vessel";
+command.vessel.edit = "Edit Vessel";
+command.vessel.save = "Save";
+command.vessel.cancel = "Cancel";
 
 section.header.id = "Vessel Identification";
 section.header.fuel = "Fuel Range and Speed";

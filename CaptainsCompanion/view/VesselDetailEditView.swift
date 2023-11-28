@@ -8,13 +8,14 @@
 import SwiftUI
 import SwiftData
 
-struct VesselDetailEditView: View, Equatable {
+struct VesselDetailEditView<Content>: View, Equatable where Content: View {
     static func == (lhs: VesselDetailEditView, rhs: VesselDetailEditView) -> Bool {
         lhs.vessel.id == rhs.vessel.id
     }
     
     @Environment(\.modelContext) private var modelContext
     @State var vessel: Vessel
+    var content: () -> Content
     
     var body: some View {
         let labelWidth: CGFloat = 120;
@@ -47,13 +48,22 @@ struct VesselDetailEditView: View, Equatable {
                         }
                 }
             }
+            content()
         }
         .padding(EdgeInsets())
     }
 
+    init(vessel: Vessel, @ViewBuilder content: @escaping () -> Content) {
+        self.vessel = vessel
+        self.content = content
+    }
+}
+
+// Support optional edit button
+extension VesselDetailEditView where Content == EmptyView {
     init(vessel: Vessel) {
         self.vessel = vessel
-        print("VesselDetailEditView.init(\(vessel.id))")
+        self.content = { EmptyView() }
     }
 }
 

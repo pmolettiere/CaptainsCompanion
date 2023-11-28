@@ -9,12 +9,11 @@ import Foundation
 import SwiftUI
 import SwiftData
 
-struct VesselDetailView: View {
+struct VesselDetailView<Content>: View where Content: View {
     @Environment(\.modelContext) private var modelContext
     @State var vessel: Vessel
-   
-    @State var isPresentingEditView = false
-    
+    var content: () -> Content
+       
     let intFormat = Format.singleton.intFormat
     let decimalFormat = Format.singleton.floatFormat
             
@@ -22,10 +21,14 @@ struct VesselDetailView: View {
         NavigationStack {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
-                    Text("\(vessel.name)").font(.title)
+                    HStack {
+                        Text("\(vessel.name)").font(.title)
+                        content()
+                    }
                     Text("\(intFormat.string(for: vessel.year) ?? "") \(vessel.make) \(vessel.model) ")
                     Text(vessel.hin)
-                } .padding()
+                }
+                .padding([.bottom])
                 VStack(alignment: .leading) {
                     Text("section.header.fuel").bold()
                     HStack(spacing: 2) {
@@ -53,42 +56,21 @@ struct VesselDetailView: View {
                         Text(Vessel.DistanceUnit.nm.label)
                     }
                 }
-                .padding()
-            }
-            .padding()
-        }
-        .sheet(isPresented: $isPresentingEditView) {
-            NavigationStack {
-                VesselDetailEditView(vessel: vessel)
-                    .navigationTitle("Edit Vessel")
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {
-                                isPresentingEditView = false
-                            }
-                        }
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Done") {
-                                isPresentingEditView = false
-                            }
-                        }
-                    }
-            }
-        }
-        .toolbar {
-            Button("Edit") {
-//                Label("vessel.detail.view.edit", systemImage: "pencil")
-                isPresentingEditView = true
             }
         }
     }
-    
+
+    init(vessel: Vessel, @ViewBuilder content: @escaping () -> Content) {
+        self.vessel = vessel
+        self.content = content
+    }
+}
+
+// Support optional edit button
+extension VesselDetailView where Content == EmptyView {
     init(vessel: Vessel) {
         self.vessel = vessel
-    }
-    
-    private func edit() {
-        isPresentingEditView = true
+        self.content = { EmptyView() }
     }
 }
 
@@ -101,6 +83,5 @@ struct VesselDetailView: View {
         fuelCapacityValue: 89, fuelCapacityUnit: .gallons)
     
     return VesselDetailView(vessel: test)
-        .modelContainer(for: Vessel.self, inMemory: true)
+            .modelContainer(for: Vessel.self, inMemory: true)
 }
-
