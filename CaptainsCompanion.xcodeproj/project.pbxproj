@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		9A0079382B162D99001B8D9B /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9A0079372B162D99001B8D9B /* LICENSE.txt */; };
+		9A00793A2B16434B001B8D9B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0079392B16434B001B8D9B /* Category.swift */; };
+		9A00793E2B1646D7001B8D9B /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A00793D2B1646D7001B8D9B /* LogEntry.swift */; };
+		9A0079402B1646E7001B8D9B /* MaintenanceLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A00793F2B1646E7001B8D9B /* MaintenanceLogEntry.swift */; };
+		9A0079422B1646F9001B8D9B /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0079412B1646F9001B8D9B /* Attachment.swift */; };
+		9A00794C2B166353001B8D9B /* MaintenanceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A00794B2B166353001B8D9B /* MaintenanceItem.swift */; };
 		9A230AE12B15432A00A62F42 /* VesselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A230AE02B15432A00A62F42 /* VesselView.swift */; };
 		9A35FBD52B12349700532D82 /* VesselDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35FBD42B12349700532D82 /* VesselDetailView.swift */; };
 		9A35FBD82B1236EF00532D82 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A35FBD72B1236EF00532D82 /* Format.swift */; };
@@ -42,6 +47,11 @@
 
 /* Begin PBXFileReference section */
 		9A0079372B162D99001B8D9B /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		9A0079392B16434B001B8D9B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9A00793D2B1646D7001B8D9B /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
+		9A00793F2B1646E7001B8D9B /* MaintenanceLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceLogEntry.swift; sourceTree = "<group>"; };
+		9A0079412B1646F9001B8D9B /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		9A00794B2B166353001B8D9B /* MaintenanceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceItem.swift; sourceTree = "<group>"; };
 		9A230AE02B15432A00A62F42 /* VesselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselView.swift; sourceTree = "<group>"; };
 		9A35FBD42B12349700532D82 /* VesselDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselDetailView.swift; sourceTree = "<group>"; };
 		9A35FBD72B1236EF00532D82 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
@@ -160,7 +170,12 @@
 		9AD81EA32B0D554B009ACCFC /* model */ = {
 			isa = PBXGroup;
 			children = (
+				9A0079412B1646F9001B8D9B /* Attachment.swift */,
+				9A00793D2B1646D7001B8D9B /* LogEntry.swift */,
+				9A00793F2B1646E7001B8D9B /* MaintenanceLogEntry.swift */,
 				9AD81E772B0D4DF1009ACCFC /* Vessel.swift */,
+				9A0079392B16434B001B8D9B /* Category.swift */,
+				9A00794B2B166353001B8D9B /* MaintenanceItem.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -318,11 +333,16 @@
 			files = (
 				9A35FBD52B12349700532D82 /* VesselDetailView.swift in Sources */,
 				9AD81E762B0D4DF1009ACCFC /* VesselListView.swift in Sources */,
+				9A00794C2B166353001B8D9B /* MaintenanceItem.swift in Sources */,
+				9A00793E2B1646D7001B8D9B /* LogEntry.swift in Sources */,
 				9A35FBD82B1236EF00532D82 /* Format.swift in Sources */,
+				9A0079422B1646F9001B8D9B /* Attachment.swift in Sources */,
 				9AD81E782B0D4DF1009ACCFC /* Vessel.swift in Sources */,
 				9A230AE12B15432A00A62F42 /* VesselView.swift in Sources */,
 				9AD81E742B0D4DF1009ACCFC /* CaptainsCompanionApp.swift in Sources */,
+				9A0079402B1646E7001B8D9B /* MaintenanceLogEntry.swift in Sources */,
 				9AD81EAC2B0D645E009ACCFC /* VesselDetailEditView.swift in Sources */,
+				9A00793A2B16434B001B8D9B /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

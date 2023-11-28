@@ -90,6 +90,7 @@ extension VesselDetailView where Content == EmptyView {
 
 #Preview {
     let test = Vessel(
+        uuid: UUID(),
         timestamp: Date(),
         name: "Salacia", model: "53C", make: "Santa Cruz", year: 2004, hin: "SYM5300H504",
         cruisingSpeedValue: 7, cruisingSpeedUnit: .knots,
