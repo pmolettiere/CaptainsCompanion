@@ -19,20 +19,26 @@ struct VesselView: View {
             VesselDetailEditView(vessel: vessel) {
                 HStack() {
                     Spacer()
-                    Button("command.vessel.save", systemImage: "square.and.pencil") {
+                    Button {
                             isEditing.toggle()
+                    } label: {
+//                        Label("command.vessel.save", systemImage: "square.and.pencil")
+                        Image(systemName: "square.and.pencil")
                     }
                 }
                 .padding()
             }
         } else{
             VesselDetailView(vessel: vessel) {
-                Button("command.vessel.save", systemImage: "pencil" ) {
+                Button {
                         isEditing.toggle()
+                } label: {
+//                    Label("command.vessel.save", systemImage: "pencil" )
+                    Image(systemName: "pencil")
                 }
             }
+            Spacer()
         }
-        Spacer()
     }
     
 }

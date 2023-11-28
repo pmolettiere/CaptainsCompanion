@@ -22,7 +22,7 @@ struct VesselListView: View {
         NavigationSplitView {
             List(selection: $selection) {
                 ForEach(vessels, id: \.self.id) { vessel in
-                    NavigationLink(destination: VesselDetailView(vessel: vessel)) {
+                    NavigationLink(destination: VesselView(vessel: vessel)) {
                         Text(vessel.name)
                     }
                 }
@@ -62,6 +62,7 @@ struct VesselListView: View {
     private func deleteVessel() {
         if let dv = selectedVessel() {
             modelContext.delete(dv)
+            selection = nil
         }
     }
 }
